@@ -1,12 +1,11 @@
 import './App.css';
-import Header from './Home/Header/Header';
-import GameCardContainer from './Home/Header/GameCard/GameCardContainer';
+import Header from './Components/Header/Header';
+import GameCardContainer from './Components/GameCardContainer/GameCardContainer';
 
 function App() {
 	return (
 		<div className='App'>
 			<Header />
-			<GameCardContainer />
 		</div>
 	);
 }
