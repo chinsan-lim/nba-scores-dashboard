@@ -1,15 +1,14 @@
 import React, { useState } from 'react';
 import { DateContext } from '../DateContext';
+import { TextField, Typography, Container, Paper, Grid } from '@mui/material';
+import Button from '@mui/material/Button';
 import GameCardContainer from '../GameCardContainer/GameCardContainer';
+import './Header.css';
+import SportsBasketballIcon from '@mui/icons-material/SportsBasketball';
 
 function Header(props) {
 	const [gameDate, setGameDate] = useState('');
 	const [userGames, setUserGames] = useState(null);
-
-	// const current = new Date();
-	// const yesterDate = `${current.getFullYear()}-${current.getMonth() + 1}-${
-	// 	current.getDate() - 1
-	// }`;
 
 	const getDailyGames = () => {
 		const url = `https://www.balldontlie.io/api/v1/games?dates[]=${gameDate}`;
@@ -17,7 +16,7 @@ function Header(props) {
 		fetch(url)
 			.then((res) => res.json())
 			.then((res) => {
-				setUserGames(res);
+				setUserGames(res.data);
 			})
 			.catch(console.error);
 	};
@@ -29,21 +28,24 @@ function Header(props) {
 	function handleSubmit(event) {
 		event.preventDefault();
 		getDailyGames();
-		console.log(gameDate);
 	}
 
 	return (
-		<div>
-			<form onSubmit={handleSubmit}>
-				<h1>NBA Game Tracker</h1>
-				<input type='date' onChange={handleChange} />
-				<input type='submit' />
-			</form>
+		<div className='calendarForm'>
+			<Container max-width='md'>
+				<form onSubmit={handleSubmit}>
+					<Typography variant='h2'>NBA Game Tracker</Typography>
+					<TextField type='date' onChange={handleChange} />
+					<Button variant='contained' type='submit'>
+						<SportsBasketballIcon />
+					</Button>
+				</form>
 
-			<DateContext.Provider
-				value={({ gameDate, setGameDate }, { userGames, setUserGames })}>
-				<GameCardContainer />
-			</DateContext.Provider>
+				<DateContext.Provider
+					value={({ gameDate, setGameDate }, { userGames, setUserGames })}>
+					<GameCardContainer />
+				</DateContext.Provider>
+			</Container>
 		</div>
 	);
 }
