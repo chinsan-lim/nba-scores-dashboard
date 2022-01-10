@@ -18,10 +18,6 @@ function GameCardContainer(props) {
 	// const [visitorTeamAssists, setVisitorTeamAssists] = useState(null);
 	const [gameIdsArr, setGameIdsArr] = useState([]);
 
-	console.log(userGames);
-
-	console.log(gameIdsArr);
-
 	// useEffect(() => {
 	// 	if (!userGames) return <h4>load</h4>;
 	// 	const gameIds = userGames.map((g) => {

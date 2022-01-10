@@ -56,7 +56,7 @@ function BoxScore(props) {
 		getBox();
 	}, [homeTeam, visitorTeam]);
 
-	console.log(homeTeamPlayers);
+
 
 	function createData(
 		id,
@@ -370,9 +370,17 @@ function BoxScore(props) {
 			</div>
 			<div className='teamsAndScore' style={{ height: 800, minWidth: '100%' }}>
 				<h3>Visitor Team: {visitorTeamName}</h3>
-				<DataGrid rows={visitorTeamRows} columns={VisitorColumns} />
+				<DataGrid
+					className='visitorGrid'
+					rows={visitorTeamRows}
+					columns={VisitorColumns}
+				/>
 				<h3>Home Team: {homeTeamName}</h3>
-				<DataGrid rows={homeTeamRows} columns={HomeColumns} />
+				<DataGrid
+					className='homeGrid'
+					rows={homeTeamRows}
+					columns={HomeColumns}
+				/>
 			</div>
 		</div>
 	);

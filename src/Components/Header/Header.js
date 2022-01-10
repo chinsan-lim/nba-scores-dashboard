@@ -1,8 +1,7 @@
-import React, { useState, useContext } from 'react';
+import React, { useContext } from 'react';
 import { DateContext } from '../DateContext';
 import { TextField, Typography, Container } from '@mui/material';
 import Button from '@mui/material/Button';
-import GameCardContainer from '../GameCardContainer/GameCardContainer';
 import './Header.css';
 import SportsBasketballIcon from '@mui/icons-material/SportsBasketball';
 
