@@ -1,3 +1,9 @@
-.gameCardContainer {
-	text-align: center;
+.gridContainer {
+	justify-content: center;
+	text-decoration: none;
+}
+
+.gridItems {
+	margin: 10px;
+	text-decoration: none;
 }

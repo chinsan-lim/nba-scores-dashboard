@@ -1,14 +1,14 @@
-import React, { useState } from 'react';
+import React, { useState, useContext } from 'react';
 import { DateContext } from '../DateContext';
-import { TextField, Typography, Container, Paper, Grid } from '@mui/material';
+import { TextField, Typography, Container } from '@mui/material';
 import Button from '@mui/material/Button';
 import GameCardContainer from '../GameCardContainer/GameCardContainer';
 import './Header.css';
 import SportsBasketballIcon from '@mui/icons-material/SportsBasketball';
 
 function Header(props) {
-	const [gameDate, setGameDate] = useState('');
-	const [userGames, setUserGames] = useState(null);
+	const { gameDate, setGameDate } = useContext(DateContext);
+	const { setUserGames } = useContext(DateContext);
 
 	const getDailyGames = () => {
 		const url = `https://www.balldontlie.io/api/v1/games?dates[]=${gameDate}`;
@@ -36,15 +36,12 @@ function Header(props) {
 				<form onSubmit={handleSubmit}>
 					<Typography variant='h2'>NBA Game Tracker</Typography>
 					<TextField type='date' onChange={handleChange} />
+					<br />
+					<br />
 					<Button variant='contained' type='submit'>
 						<SportsBasketballIcon />
 					</Button>
 				</form>
-
-				<DateContext.Provider
-					value={({ gameDate, setGameDate }, { userGames, setUserGames })}>
-					<GameCardContainer />
-				</DateContext.Provider>
 			</Container>
 		</div>
 	);

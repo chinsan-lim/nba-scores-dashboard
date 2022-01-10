@@ -1,16 +1,17 @@
-import React from 'react';
+import { useState } from 'react';
 import { Paper } from '@mui/material';
 import Table from '@mui/material/Table';
 import TableBody from '@mui/material/TableBody';
 import TableCell from '@mui/material/TableCell';
 import TableContainer from '@mui/material/TableContainer';
 import TableRow from '@mui/material/TableRow';
-// import { styled } from '@mui/material/styles';
 import Card from '@mui/material/Card';
 import CardContent from '@mui/material/CardContent';
 import './GameCard.css';
 
 function GameCard({ g }) {
+	const [gameGoat, setGameGoat] = useState(false);
+
 	function createData(team, score) {
 		return { team, score };
 	}
@@ -20,11 +21,13 @@ function GameCard({ g }) {
 		createData(g.home_team.full_name, g.home_team_score),
 	];
 
-	console.log(rows);
-
 	if (!rows) return <div>load</div>;
 	return (
-		<Card elevation={3}>
+		<Card
+			elevation={3}
+			// onMouseEnter={() => setGameGoat(true)}
+			// onMouseLeave={() => setGameGoat(false)}
+		>
 			<CardContent>
 				<TableContainer component={Paper}>
 					<Table sx={{ minWidth: 650 }} size='small' aria-label='a dense table'>
@@ -34,6 +37,9 @@ function GameCard({ g }) {
 									key={row.team}
 									sx={{
 										'&:last-child td, &:last-child th': { border: 0 },
+									}}
+									style={{
+										textDecoration: 'none',
 									}}>
 									<TableCell component='th' scope='row'>
 										{row.team}
@@ -45,6 +51,7 @@ function GameCard({ g }) {
 					</Table>
 				</TableContainer>
 			</CardContent>
+			{gameGoat && <div>I'll appear when you hover over the button.</div>}
 		</Card>
 	);
 }
