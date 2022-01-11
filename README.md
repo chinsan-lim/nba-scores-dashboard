@@ -15,7 +15,7 @@ Material UI Library
 
 Installation instructions
 
-load on your browser and start playing!
+load [NBA Scores Dashboard](https://nbadashboard.netlify.app/)on your browser and start playing!
 
 Your User stories – who are your users, what do they want and why?
 
