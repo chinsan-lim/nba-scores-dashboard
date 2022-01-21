@@ -17,9 +17,13 @@
 
 ## **Installation instructions**
 
-////////include instructions for cloning, and installing the dependencies. Then using npm start to start the server.
+- Fork and clone this repository.
+- Change into the new directory with cd nba-scores-dashboard.
+- Install the project dependencies with npm i or npm install.
+- Run app with npm start
 
 [Load](https://nbadashboard.netlify.app/) on your browser and start playing!
+
 
 ## **Your User stories – who are your users, what do they want and why?**
 
