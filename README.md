@@ -22,7 +22,7 @@
 - Install the project dependencies with npm i or npm install.
 - Run app with npm start
 
-[Load](https://nbadashboard.netlify.app/) on your browser and start playing!
+[Load](https://nbadashboard.netlify.app/) on your browser!
 
 
 ## **Your User stories – who are your users, what do they want and why?**
