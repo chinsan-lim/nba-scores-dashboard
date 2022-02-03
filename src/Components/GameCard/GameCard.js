@@ -1,4 +1,3 @@
-import { useState } from 'react';
 import { Paper } from '@mui/material';
 import Table from '@mui/material/Table';
 import TableBody from '@mui/material/TableBody';
@@ -10,8 +9,9 @@ import CardContent from '@mui/material/CardContent';
 import './GameCard.css';
 
 function GameCard({ g }) {
-	const [gameGoat, setGameGoat] = useState(false);
+	// const [gameGoat, setGameGoat] = useState(false);
 
+	// function to display both teams and scores in card nested table
 	function createData(team, score) {
 		return { team, score };
 	}
@@ -51,7 +51,7 @@ function GameCard({ g }) {
 					</Table>
 				</TableContainer>
 			</CardContent>
-			{gameGoat && <div>I'll appear when you hover over the button.</div>}
+			{/* {gameGoat && <div>I'll appear when you hover over the button.</div>} */}
 		</Card>
 	);
 }

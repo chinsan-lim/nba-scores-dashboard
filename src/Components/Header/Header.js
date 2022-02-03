@@ -6,9 +6,11 @@ import './Header.css';
 import SportsBasketballIcon from '@mui/icons-material/SportsBasketball';
 
 function Header(props) {
+	//use context to pull state vars from parent component (App.js)
 	const { gameDate, setGameDate } = useContext(DateContext);
 	const { setUserGames } = useContext(DateContext);
 
+	//Initial API call to grab the respective games of the data, based on user input. The date needs to be string concatenated into the URL as a query parameter
 	const getDailyGames = () => {
 		const url = `https://www.balldontlie.io/api/v1/games?dates[]=${gameDate}`;
 
@@ -20,10 +22,13 @@ function Header(props) {
 			.catch(console.error);
 	};
 
+	//handleChange function sets the game date the user inputted into the gameDate state variable
+
 	function handleChange(event) {
 		setGameDate(event.target.value);
 	}
 
+	//handleSumbit fires the API call after the use clicks the submit button
 	function handleSubmit(event) {
 		event.preventDefault();
 		getDailyGames();

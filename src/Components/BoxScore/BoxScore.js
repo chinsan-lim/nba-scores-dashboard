@@ -5,6 +5,7 @@ import { DataGrid } from '@mui/x-data-grid';
 import { Button } from '@mui/material';
 
 function BoxScore(props) {
+	// state variables for the home/away team boxscores
 	const [game, setGame] = useState(null);
 	const [box, setBox] = useState(null);
 	const [homeTeam, setHomeTeam] = useState(null);
@@ -14,8 +15,10 @@ function BoxScore(props) {
 	const [homeTeamName, setHomeTeamName] = useState(null);
 	const [visitorTeamName, setVisitorTeamName] = useState(null);
 
+	// useParams to pull id from the URL
 	const { id } = useParams();
 
+	//API call to pull the specific game that was clicked on
 	const getGames = () => {
 		const url = `https://www.balldontlie.io/api/v1/games/${id}`;
 		fetch(url)
@@ -30,6 +33,7 @@ function BoxScore(props) {
 			.catch(console.error);
 	};
 
+	//API call to pull all the players that played in the specific game ID
 	const getBox = () => {
 		const url = `https://www.balldontlie.io/api/v1/stats?game_ids[]=${id}`;
 		fetch(url)
@@ -56,8 +60,7 @@ function BoxScore(props) {
 		getBox();
 	}, [homeTeam, visitorTeam]);
 
-
-
+	// function to create row elements in grid for each player
 	function createData(
 		id,
 		first_name,
@@ -137,6 +140,7 @@ function BoxScore(props) {
 
 	const visitorTeamRows = visitorTeamPlayers.map((p) =>
 		createData(
+			
 			p.player.id,
 			p.player.first_name,
 			p.player.last_name,
@@ -161,6 +165,9 @@ function BoxScore(props) {
 			p.pts
 		)
 	);
+
+	console.log(visitorTeamPlayers[0].player.id);
+	console.log(homeTeamPlayers[0].player.id);
 
 	const VisitorColumns = [
 		{

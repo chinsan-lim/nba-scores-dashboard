@@ -7,8 +7,11 @@ import background from '../NBA-For-PC-Wallpaper.jpeg';
 import { Route, Routes, Link } from 'react-router-dom';
 
 function GameCardContainer(props) {
+	//use context to pull state vars from parent component (App.js)
 	const { gameDate } = useContext(DateContext);
 	const { userGames } = useContext(DateContext);
+
+	//add the leading scorers, rebounders, and assists in a hover or dropdown
 
 	// const [homeTeamScorer, setHomeTeamScorer] = useState(null);
 	// const [homeTeamRebounder, setHomeTeamRebounder] = useState(null);
@@ -16,7 +19,7 @@ function GameCardContainer(props) {
 	// const [visitorTeamScorer, setVisitorTeamScorer] = useState(null);
 	// const [visitorTeamRebounder, setVisitorTeamRebounder] = useState(null);
 	// const [visitorTeamAssists, setVisitorTeamAssists] = useState(null);
-	const [gameIdsArr, setGameIdsArr] = useState([]);
+	// const [gameIdsArr, setGameIdsArr] = useState([]);
 
 	// useEffect(() => {
 	// 	if (!userGames) return <h4>load</h4>;

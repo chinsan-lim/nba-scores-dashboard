@@ -7,6 +7,7 @@ import { DateContext } from './Components/DateContext';
 import BoxScore from './Components/BoxScore/BoxScore';
 
 function App() {
+	//state variables for user inputted dates and the respective games from that date (pulled from API)
 	const [gameDate, setGameDate] = useState('');
 	const [userGames, setUserGames] = useState(null);
 
@@ -14,7 +15,9 @@ function App() {
 		<div className='App'>
 			<DateContext.Provider
 				value={{ gameDate, setGameDate, userGames, setUserGames }}>
+				{/* header always remains on page load */}
 				<Header />
+				{/* routes for displaying all the games in one component and displaying the box score component on click of the respective game*/}
 				<Routes>
 					<Route path='/' element={<GameCardContainer />} />
 					<Route path='/games/:id' element={<BoxScore />} />
